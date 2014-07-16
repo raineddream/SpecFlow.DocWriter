@@ -7,8 +7,8 @@
     <ProjectGuid>{8E353840-0181-45E6-92DB-D70FA6984B5D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DocWriter</RootNamespace>
-    <AssemblyName>DocWriter</AssemblyName>
+    <RootNamespace>Rain.SpecFlow.DocWriter</RootNamespace>
+    <AssemblyName>Rain.SpecFlow.DocWriter</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

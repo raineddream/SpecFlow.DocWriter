@@ -1,8 +1,8 @@
-﻿namespace DocWriter
+﻿namespace Rain.SpecFlow.DocWriter
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
         }
     }
