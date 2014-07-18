@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Mono.Options;
-
-namespace Rain.SpecFlow.DocWriter
+﻿namespace Rain.SpecFlow.DocWriter
 {
     public class Program
     {
