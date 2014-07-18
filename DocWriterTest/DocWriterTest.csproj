@@ -44,9 +44,16 @@
   <ItemGroup>
     <Compile Include="ArgumentParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reader\SpecificationReaderTest.cs" />
+    <Compile Include="ResourcePath.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resource\Spec\Dlis\ImportLogsFromDLIS.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ImportLogsFromDLIS.feature.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DocWriter\DocWriter.csproj">
