@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
-using Rain.SpecFlow.DocWriter;
 
-namespace DocWriterTest
+namespace Rain.SpecFlow.DocWriter
 {
     [TestFixture]
     public class ArgumentParserTest

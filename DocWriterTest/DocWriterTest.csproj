@@ -7,8 +7,8 @@
     <ProjectGuid>{72ECFB10-9F55-4087-B03E-85603085A2E4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DocWriterTest</RootNamespace>
-    <AssemblyName>DocWriterTest</AssemblyName>
+    <RootNamespace>Rain.SpecFlow.DocWriter</RootNamespace>
+    <AssemblyName>Rain.SpecFlow.DocWriterTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
