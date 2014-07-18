@@ -49,9 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Resource\Spec\Dlis\ImportLogsFromDLIS.feature">
+    <None Include="Resource\Spec\Question\Answers.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ImportLogsFromDLIS.feature.cs</LastGenOutput>
+      <LastGenOutput>Answers.feature.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
