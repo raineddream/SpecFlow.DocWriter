@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Mono.Options;
+﻿using Mono.Options;
 
 namespace Rain.SpecFlow.DocWriter
 {
