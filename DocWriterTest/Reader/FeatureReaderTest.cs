@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.IO;
+using NUnit.Framework;
 
 namespace Rain.SpecFlow.DocWriter.Reader
 {
@@ -8,7 +9,8 @@ namespace Rain.SpecFlow.DocWriter.Reader
         [Test]
         public void Should_read_in_feature_description_without_blank_prefix()
         {
-            var reader = new FeatureReader(ResourcePath.Sub(@"Spec\Question\Answers.feature"));
+            string featureDesc = "Feature: Ording answers";
+            var reader = new FeatureReader(new StringReader(featureDesc));
 
             Feature feature = reader.Read();
 

@@ -6,34 +6,32 @@ namespace Rain.SpecFlow.DocWriter.Reader
 {
     public class FeatureReader : IReader<Feature>
     {
+        private readonly TextReader _reader;
         private static readonly int KEYWORD_FEATURE_LENGTH = 7;
         private readonly string _specFullName;
 
-        public FeatureReader(string specFullName)
+        public FeatureReader(TextReader reader)
         {
-            _specFullName = specFullName;
+            _reader = reader;
         }
 
         public Feature Read()
         {
             var featureDesc = new StringBuilder();
 
-            using (var reader = new StreamReader(_specFullName))
+            string line = _reader.ReadLine();
+            while (line != null)
             {
-                string line = reader.ReadLine();
-                while (line != null)
+                if (IsFeatureDescription(line))
                 {
-                    if (IsFeatureDescription(line))
-                    {
-                        featureDesc.Append(ExtractFeatureDescription(line));
-                    }
-
-                    line = reader.ReadLine();
+                    featureDesc.Append(ExtractFeatureDescription(line));
                 }
+
+                line = _reader.ReadLine();
             }
 
 
-            return new Feature(_specFullName, featureDesc.ToString());
+            return new Feature(featureDesc.ToString());
         }
 
         private bool IsFeatureDescription(string line)

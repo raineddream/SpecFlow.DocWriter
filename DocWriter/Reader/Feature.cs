@@ -2,13 +2,11 @@
 {
     public class Feature
     {
-        public Feature(string fullNme, string description)
+        public Feature(string description)
         {
-            FullName = fullNme;
             Description = description;
         }
 
-        public object FullName { get; private set; }
         public object Description { get; private set; }
     }
 }

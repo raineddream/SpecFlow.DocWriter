@@ -18,8 +18,11 @@ namespace Rain.SpecFlow.DocWriter.Reader
 
             foreach (string specFileName in FindAllSpecFiles(_specFolder))
             {
-                Feature feature = new FeatureReader(specFileName).Read();
-                spec.AddFeature(feature);
+                using (var reader = new StreamReader(specFileName))
+                {
+                    Feature feature = new FeatureReader(reader).Read();
+                    spec.AddFeature(feature);
+                }
             }
 
             return spec;

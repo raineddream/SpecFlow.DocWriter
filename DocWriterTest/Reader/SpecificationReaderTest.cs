@@ -13,7 +13,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
             Specification spec = reader.Read();
 
             Assert.That(spec.Features.Count, Is.EqualTo(1));
-            Assert.That(spec.Features[0].FullName, Is.EqualTo(ResourcePath.Sub(@"Spec\Question\Answers.feature")));
+            Assert.That(spec.Features[0].Description, Is.EqualTo("Ording answers"));
         }
     }
 }
