@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace Rain.SpecFlow.DocWriter.Reader
 {
-    public class SpecificationReader
+    public class SpecificationReader : IReader<Specification>
     {
         private readonly string _specFolder;
 
@@ -19,7 +18,8 @@ namespace Rain.SpecFlow.DocWriter.Reader
 
             foreach (string specFileName in FindAllSpecFiles(_specFolder))
             {
-                spec.AddFeature(new Feature(specFileName));
+                Feature feature = new FeatureReader(specFileName).Read();
+                spec.AddFeature(feature);
             }
 
             return spec;
