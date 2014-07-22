@@ -42,6 +42,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
             Feature feature = reader.Read();
 
             Assert.That(feature.Scenarios.Count, Is.EqualTo(1));
+            Assert.That(feature.Scenarios[0].Description, Is.EqualTo("The answer with the highest vote gets to the top"));
         }
 
         private StringReader ReadIn(string featureDesc)

@@ -31,7 +31,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
                 line = _reader.ReadLine();
             }
 
-            return null;
+            return new Scenario(scenarioDesc.ToString());
         }
 
         public static bool CanReadIn(string line)
