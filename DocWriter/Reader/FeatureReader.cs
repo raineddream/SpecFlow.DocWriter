@@ -9,6 +9,8 @@ namespace Rain.SpecFlow.DocWriter.Reader
         private readonly TextReader _reader;
         private static readonly int KEYWORD_FEATURE_LENGTH = 7;
         private readonly string _specFullName;
+        private bool isInFeatureDesc;
+        private bool needToExtractFeatureKeyword;
 
         public FeatureReader(TextReader reader)
         {
@@ -36,13 +38,30 @@ namespace Rain.SpecFlow.DocWriter.Reader
 
         private bool IsFeatureDescription(string line)
         {
-            return line.StartsWith("feature", true, CultureInfo.DefaultThreadCurrentCulture);
+            if (isInFeatureDesc)
+            {
+                needToExtractFeatureKeyword = false;
+                return true;
+            }
+
+            if (line.StartsWith("feature", true, CultureInfo.DefaultThreadCurrentCulture))
+            {
+                isInFeatureDesc = true;
+                needToExtractFeatureKeyword = true;
+                return true;
+            }
+
+            return false;
         }
 
         private string ExtractFeatureDescription(string line)
         {
-            string desc = line.Substring(KEYWORD_FEATURE_LENGTH + 1);
-            return desc.Trim();
+            if (!needToExtractFeatureKeyword)
+            {
+                return line;
+            }
+
+            return line.Substring(KEYWORD_FEATURE_LENGTH + 1).Trim();
         }
     }
 }
