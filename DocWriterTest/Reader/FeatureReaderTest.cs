@@ -31,6 +31,19 @@ namespace Rain.SpecFlow.DocWriter.Reader
             Assert.That(feature.Description, Is.EqualTo("Ording answers\tabout voting"));
         }
 
+        [Test]
+        public void Should_read_in_scenario()
+        {
+            var featureDesc = new StringBuilder();
+            featureDesc.AppendLine("Feature: Ording answers");
+            featureDesc.AppendLine("Scenario: The answer with the highest vote gets to the top");
+            var reader = new FeatureReader(ReadIn(featureDesc.ToString()));
+
+            Feature feature = reader.Read();
+
+            Assert.That(feature.Scenarios.Count, Is.EqualTo(1));
+        }
+
         private StringReader ReadIn(string featureDesc)
         {
             return new StringReader(featureDesc);

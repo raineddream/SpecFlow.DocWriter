@@ -49,6 +49,8 @@
     <Compile Include="Reader\Feature.cs" />
     <Compile Include="Reader\FeatureReader.cs" />
     <Compile Include="Reader\IReader.cs" />
+    <Compile Include="Reader\Scenario.cs" />
+    <Compile Include="Reader\ScenarioReader.cs" />
     <Compile Include="Reader\Specification.cs" />
     <Compile Include="Reader\SpecificationReader.cs" />
   </ItemGroup>

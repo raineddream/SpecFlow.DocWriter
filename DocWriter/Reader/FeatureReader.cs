@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
 
@@ -21,18 +22,33 @@ namespace Rain.SpecFlow.DocWriter.Reader
             var featureDesc = new StringBuilder();
 
             string line = _reader.ReadLine();
+            var scenarios = new List<Scenario>();
             while (line != null)
             {
-                if (IsFeatureDescription(line))
+                if (IsScenario(line))
+                {
+                    scenarios.Add(new ScenarioReader(line, _reader).Read());
+                }
+                else if (IsFeatureDescription(line))
                 {
                     featureDesc.Append(ExtractFeatureDescription(line));
-                }
+                } 
 
                 line = _reader.ReadLine();
             }
 
 
-            return new Feature(featureDesc.ToString());
+            var feature = new Feature(featureDesc.ToString());
+            foreach (var scenario in scenarios)
+            {
+                feature.AddScenario(scenario);
+            }
+            return feature;
+        }
+
+        private bool IsScenario(string line)
+        {
+            return line.StartsWith("scenario", true, CultureInfo.DefaultThreadCurrentCulture);
         }
 
         private bool IsFeatureDescription(string line)
