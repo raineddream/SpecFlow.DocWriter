@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 using NUnit.Framework;
+using Rain.SpecFlow.DocWriter.Reader.IO;
 
 namespace Rain.SpecFlow.DocWriter.Reader
 {
@@ -45,9 +46,9 @@ namespace Rain.SpecFlow.DocWriter.Reader
             Assert.That(feature.Scenarios[0].Description, Is.EqualTo("The answer with the highest vote gets to the top"));
         }
 
-        private StringReader ReadIn(string featureDesc)
+        private BufferedReader ReadIn(string featureDesc)
         {
-            return new StringReader(featureDesc);
+            return new BufferedReader(new StringReader(featureDesc));
         }
     }
 }

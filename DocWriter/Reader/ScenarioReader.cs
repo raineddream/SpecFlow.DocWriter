@@ -1,6 +1,8 @@
+using System;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using Rain.SpecFlow.DocWriter.Reader.IO;
 
 namespace Rain.SpecFlow.DocWriter.Reader
 {
@@ -8,9 +10,9 @@ namespace Rain.SpecFlow.DocWriter.Reader
     {
         private const int KeywordScenarioLength = 8;
         private readonly string _currentLine;
-        private readonly TextReader _reader;
+        private readonly BufferedReader _reader;
 
-        public ScenarioReader(string currentLine, TextReader reader)
+        public ScenarioReader(string currentLine, BufferedReader reader)
         {
             _currentLine = currentLine;
             _reader = reader;

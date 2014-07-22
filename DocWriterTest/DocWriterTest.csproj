@@ -45,6 +45,7 @@
     <Compile Include="ArgumentParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\FeatureReaderTest.cs" />
+    <Compile Include="Reader\IO\BufferedReaderTest.cs" />
     <Compile Include="Reader\SpecificationReaderTest.cs" />
     <Compile Include="ResourcePath.cs" />
   </ItemGroup>

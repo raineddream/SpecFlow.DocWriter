@@ -46,6 +46,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reader\IO\BufferedReader.cs" />
     <Compile Include="Reader\Feature.cs" />
     <Compile Include="Reader\FeatureReader.cs" />
     <Compile Include="Reader\IReader.cs" />

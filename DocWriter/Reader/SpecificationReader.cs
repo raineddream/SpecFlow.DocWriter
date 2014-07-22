@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Rain.SpecFlow.DocWriter.Reader.IO;
 
 namespace Rain.SpecFlow.DocWriter.Reader
 {
@@ -18,11 +19,12 @@ namespace Rain.SpecFlow.DocWriter.Reader
 
             foreach (string specFileName in FindAllSpecFiles(_specFolder))
             {
-                using (var reader = new StreamReader(specFileName))
-                {
-                    Feature feature = new FeatureReader(reader).Read();
-                    spec.AddFeature(feature);
-                }
+                var streamReader = new StreamReader(specFileName);
+                var bufferedReader = new BufferedReader(streamReader);
+                streamReader.Close();
+
+                Feature feature = new FeatureReader(bufferedReader).Read();
+                spec.AddFeature(feature);
             }
 
             return spec;

@@ -2,17 +2,18 @@
 using System.Globalization;
 using System.IO;
 using System.Text;
+using Rain.SpecFlow.DocWriter.Reader.IO;
 
 namespace Rain.SpecFlow.DocWriter.Reader
 {
     public class FeatureReader : IReader<Feature>
     {
         private const int KeywordFeatureLength = 7;
-        private readonly TextReader _reader;
+        private readonly BufferedReader _reader;
         private bool _isInFeatureDesc;
         private bool _needToExtractFeatureKeyword;
 
-        public FeatureReader(TextReader reader)
+        public FeatureReader(BufferedReader reader)
         {
             _reader = reader;
         }
