@@ -6,6 +6,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
 {
     public class ScenarioReader : IReader<Scenario>
     {
+        private const int KeywordScenarioLength = 8;
         private readonly string _currentLine;
         private readonly TextReader _reader;
 
@@ -33,14 +34,19 @@ namespace Rain.SpecFlow.DocWriter.Reader
             return null;
         }
 
-        private bool IsScenarioDescription(string line)
+        public static bool CanReadIn(string line)
         {
             return line.StartsWith("scenario", true, CultureInfo.DefaultThreadCurrentCulture);
         }
 
+        private bool IsScenarioDescription(string line)
+        {
+            return CanReadIn(line);
+        }
+
         private string ExtractScenarioDescription(string line)
         {
-            return line.Substring("scenario".Length + 1).Trim();
+            return line.Substring(KeywordScenarioLength + 1).Trim();
         }
     }
 }

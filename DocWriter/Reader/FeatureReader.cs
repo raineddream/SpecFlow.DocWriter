@@ -25,7 +25,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
             var scenarios = new List<Scenario>();
             while (line != null)
             {
-                if (IsScenario(line))
+                if (ScenarioReader.CanReadIn(line))
                 {
                     scenarios.Add(new ScenarioReader(line, _reader).Read());
                 }
@@ -44,11 +44,6 @@ namespace Rain.SpecFlow.DocWriter.Reader
                 feature.AddScenario(scenario);
             }
             return feature;
-        }
-
-        private bool IsScenario(string line)
-        {
-            return line.StartsWith("scenario", true, CultureInfo.DefaultThreadCurrentCulture);
         }
 
         private bool IsFeatureDescription(string line)
