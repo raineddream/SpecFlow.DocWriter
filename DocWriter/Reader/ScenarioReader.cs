@@ -11,6 +11,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
         private const int KeywordScenarioLength = 8;
         private readonly string _currentLine;
         private readonly BufferedReader _reader;
+        private bool hasReadInThisScenario;
 
         public ScenarioReader(string currentLine, BufferedReader reader)
         {
@@ -21,13 +22,23 @@ namespace Rain.SpecFlow.DocWriter.Reader
         public Scenario Read()
         {
             var scenarioDesc = new StringBuilder();
-
+            hasReadInThisScenario = false;
+            
             string line = _currentLine;
             while (line != null)
             {
                 if (IsScenarioDescription(line))
                 {
-                    scenarioDesc.Append(ExtractScenarioDescription(line));
+                    if (hasReadInThisScenario)
+                    {
+                        _reader.BackToPrevLine();
+                        break;
+                    }
+                    else
+                    {
+                        hasReadInThisScenario = true;
+                        scenarioDesc.Append(ExtractScenarioDescription(line));
+                    }
                 }
 
                 line = _reader.ReadLine();

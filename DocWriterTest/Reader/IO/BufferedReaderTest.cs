@@ -28,5 +28,29 @@ namespace Rain.SpecFlow.DocWriter.Reader.IO
 
             Assert.That(reader.ReadLine(), Is.Null);
         }
+
+        [Test]
+        public void Should_back_to_prev_line()
+        {
+            var content = new StringBuilder();
+            content.AppendLine("line 1");
+            content.AppendLine("line 2");
+            var reader = new BufferedReader(new StringReader(content.ToString()));
+            reader.ReadLine();
+
+            reader.BackToPrevLine();
+
+            Assert.That(reader.ReadLine(), Is.EqualTo("line 1"));
+        }
+
+        [Test]
+        public void Should_only_back_to_start()
+        {
+            var reader = new BufferedReader(new StringReader("one line"));
+            
+            reader.BackToPrevLine();
+
+            Assert.That(reader.ReadLine(), Is.EqualTo("one line"));
+        }
     }
 }

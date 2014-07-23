@@ -31,5 +31,13 @@ namespace Rain.SpecFlow.DocWriter.Reader.IO
         {
             return _readAt >= _lines.Count ? null : _lines[_readAt++];
         }
+
+        public void BackToPrevLine()
+        {
+            if (_readAt > 0)
+            {
+                _readAt--;
+            }
+        }
     }
 }

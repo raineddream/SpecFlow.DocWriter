@@ -51,7 +51,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
         {
             var featureDesc = new StringBuilder();
             featureDesc.AppendLine("Feature: Ording answers");
-            featureDesc.AppendLine("    "); // Blank space
+            featureDesc.AppendLine("    "); // Blank spaces
             featureDesc.AppendLine("    "); // Tab
             featureDesc.AppendLine("Scenario: The answer with the highest vote gets to the top");
             var reader = new FeatureReader(ReadIn(featureDesc.ToString()));
@@ -59,6 +59,23 @@ namespace Rain.SpecFlow.DocWriter.Reader
             Feature feature = reader.Read();
 
             Assert.That(feature.Scenarios.Count, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void Should_read_in_multi_scenarios()
+        {
+            var featureDesc = new StringBuilder();
+            featureDesc.AppendLine("Feature: Ording answers");
+            featureDesc.AppendLine("Scenario: The answer with the highest vote gets to the top");
+            featureDesc.AppendLine("Scenario: The answer with the lowest vote gets to the bottom");
+
+            var reader = new FeatureReader(ReadIn(featureDesc.ToString()));
+
+            Feature feature = reader.Read();
+
+            Assert.That(feature.Scenarios.Count, Is.EqualTo(2));
+            Assert.That(feature.Scenarios[0].Description, Is.EqualTo("The answer with the highest vote gets to the top"));
+            Assert.That(feature.Scenarios[1].Description, Is.EqualTo("The answer with the lowest vote gets to the bottom"));
         }
 
         private BufferedReader ReadIn(string featureDesc)
