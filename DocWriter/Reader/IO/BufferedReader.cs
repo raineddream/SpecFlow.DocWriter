@@ -21,7 +21,7 @@ namespace Rain.SpecFlow.DocWriter.Reader.IO
             string line = reader.ReadLine();
             while (line != null)
             {
-                _lines.Add(line);
+                _lines.Add(line.Trim());
 
                 line = reader.ReadLine();
             }

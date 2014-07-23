@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Rain.SpecFlow.DocWriter.Reader.IO;
 
 namespace Rain.SpecFlow.DocWriter.Reader
 {
@@ -14,6 +15,21 @@ namespace Rain.SpecFlow.DocWriter.Reader
             Scenario scenario = reader.Read();
 
             Assert.That(scenario.Description, Is.EqualTo("The answer with the highest vote gets to the top"));
+        }
+
+        [Test]
+        public void Should_read_in_given_statement()
+        {
+            BufferedReader bufferedReader = BufferedReaderBuilder.ReadIn(
+                "Scenario: The answer with the highest vote gets to the top",
+                "    Given there is a question \"What's your favorite colour?\" with the answers"
+                );
+            var reader = new ScenarioReader("Scenario: The answer with the highest vote gets to the top", bufferedReader);
+            bufferedReader.ReadLine();
+
+            Scenario scenario = reader.Read();
+
+            Assert.That(scenario.Statements[0], Should.EqualTo(StatementBuilder.Given("there is a question \"What's your favorite colour?\" with the answers")));
         }
     }
 }

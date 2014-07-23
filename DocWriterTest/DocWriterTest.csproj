@@ -48,7 +48,10 @@
     <Compile Include="Reader\FeatureReaderTest.cs" />
     <Compile Include="Reader\IO\BufferedReaderTest.cs" />
     <Compile Include="Reader\ScenarioReaderTest.cs" />
+    <Compile Include="Reader\Should.cs" />
     <Compile Include="Reader\SpecificationReaderTest.cs" />
+    <Compile Include="Reader\StatementBuilder.cs" />
+    <Compile Include="Reader\StatementEqualityConstraint.cs" />
     <Compile Include="ResourcePath.cs" />
   </ItemGroup>
   <ItemGroup>

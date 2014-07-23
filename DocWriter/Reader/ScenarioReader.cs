@@ -21,11 +21,17 @@ namespace Rain.SpecFlow.DocWriter.Reader
         {
             var scenarioDesc = new StringBuilder();
             _hasReadInThisScenario = false;
-            
+
+            var scenario = new Scenario();
+
             string line = _currentLine;
             while (line != null)
             {
-                if (IsScenarioDescription(line))
+                if (IsGivenStatement(line))
+                {
+                    scenario.AddStatement(CreateGivenStatement(line));
+                }
+                else if (IsScenarioDescription(line))
                 {
                     if (_hasReadInThisScenario)
                     {
@@ -42,7 +48,19 @@ namespace Rain.SpecFlow.DocWriter.Reader
                 line = _reader.ReadLine();
             }
 
-            return new Scenario(scenarioDesc.ToString());
+            scenario.Description = scenarioDesc.ToString();
+
+            return scenario;
+        }
+
+        private IStatement CreateGivenStatement(string line)
+        {
+            return new GivenStatement(line);
+        }
+
+        private bool IsGivenStatement(string line)
+        {
+            return line.StartsWith("given", true, CultureInfo.DefaultThreadCurrentCulture);
         }
 
         public static bool CanReadIn(string line)

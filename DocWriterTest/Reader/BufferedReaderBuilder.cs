@@ -11,6 +11,16 @@ namespace Rain.SpecFlow.DocWriter.Reader
             return ReadIn(featureDesc.ToString());
         }
 
+        public static BufferedReader ReadIn(params string[] statements)
+        {
+            var content = new StringBuilder();
+            foreach (string line in statements)
+            {
+                content.AppendLine(line);
+            }
+            return ReadIn(content.ToString());
+        }
+
         public static BufferedReader ReadIn(string featureDesc)
         {
             return new BufferedReader(new StringReader(featureDesc));

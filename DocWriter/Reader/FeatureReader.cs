@@ -69,7 +69,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
         {
             if (!_needToExtractFeatureKeyword)
             {
-                return line;
+                return "\t" + line;
             }
 
             return line.Substring(KeywordFeatureLength + 1).Trim();
