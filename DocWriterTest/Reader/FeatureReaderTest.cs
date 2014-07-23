@@ -46,6 +46,21 @@ namespace Rain.SpecFlow.DocWriter.Reader
             Assert.That(feature.Scenarios[0].Description, Is.EqualTo("The answer with the highest vote gets to the top"));
         }
 
+        [Test]
+        public void Should_ignore_blank_line()
+        {
+            var featureDesc = new StringBuilder();
+            featureDesc.AppendLine("Feature: Ording answers");
+            featureDesc.AppendLine("    "); // Blank space
+            featureDesc.AppendLine("    "); // Tab
+            featureDesc.AppendLine("Scenario: The answer with the highest vote gets to the top");
+            var reader = new FeatureReader(ReadIn(featureDesc.ToString()));
+
+            Feature feature = reader.Read();
+
+            Assert.That(feature.Scenarios.Count, Is.EqualTo(1));
+        }
+
         private BufferedReader ReadIn(string featureDesc)
         {
             return new BufferedReader(new StringReader(featureDesc));
