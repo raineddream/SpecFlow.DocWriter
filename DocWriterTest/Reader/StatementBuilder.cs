@@ -1,4 +1,6 @@
-﻿namespace Rain.SpecFlow.DocWriter.Reader
+﻿using Rain.SpecFlow.DocWriter.Spec;
+
+namespace Rain.SpecFlow.DocWriter.Reader
 {
     public class StatementBuilder
     {

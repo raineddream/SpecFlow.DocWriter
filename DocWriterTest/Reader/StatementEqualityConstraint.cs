@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework.Constraints;
+using Rain.SpecFlow.DocWriter.Spec;
 
 namespace Rain.SpecFlow.DocWriter.Reader
 {

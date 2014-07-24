@@ -48,14 +48,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\GivenStatement.cs" />
     <Compile Include="Reader\IO\BufferedReader.cs" />
-    <Compile Include="Reader\Feature.cs" />
     <Compile Include="Reader\FeatureReader.cs" />
     <Compile Include="Reader\IReader.cs" />
-    <Compile Include="Reader\IStatement.cs" />
-    <Compile Include="Reader\Scenario.cs" />
     <Compile Include="Reader\ScenarioReader.cs" />
-    <Compile Include="Reader\Specification.cs" />
     <Compile Include="Reader\SpecificationReader.cs" />
+    <Compile Include="Spec\Feature.cs" />
+    <Compile Include="Spec\IStatement.cs" />
+    <Compile Include="Spec\Scenario.cs" />
+    <Compile Include="Spec\Specification.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,4 +1,4 @@
-﻿namespace Rain.SpecFlow.DocWriter.Reader
+﻿namespace Rain.SpecFlow.DocWriter.Spec
 {
     public interface IStatement
     {

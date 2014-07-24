@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using Rain.SpecFlow.DocWriter.Reader;
 
-namespace Rain.SpecFlow.DocWriter.Reader
+namespace Rain.SpecFlow.DocWriter.Spec
 {
     public class Feature
     {

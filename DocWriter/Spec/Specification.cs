@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Rain.SpecFlow.DocWriter.Reader
+namespace Rain.SpecFlow.DocWriter.Spec
 {
     public class Specification
     {

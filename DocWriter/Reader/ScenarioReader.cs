@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Text;
 using Rain.SpecFlow.DocWriter.Reader.IO;
+using Rain.SpecFlow.DocWriter.Spec;
 
 namespace Rain.SpecFlow.DocWriter.Reader
 {
