@@ -6,11 +6,6 @@ namespace Rain.SpecFlow.DocWriter.Reader
 {
     class BufferedReaderBuilder
     {
-        public static BufferedReader ReadIn(StringBuilder featureDesc)
-        {
-            return ReadIn(featureDesc.ToString());
-        }
-
         public static BufferedReader ReadIn(params string[] statements)
         {
             var content = new StringBuilder();
@@ -21,7 +16,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
             return ReadIn(content.ToString());
         }
 
-        public static BufferedReader ReadIn(string featureDesc)
+        private static BufferedReader ReadIn(string featureDesc)
         {
             return new BufferedReader(new StringReader(featureDesc));
         }

@@ -10,8 +10,9 @@ namespace Rain.SpecFlow.DocWriter.Reader
         [Test]
         public void Should_read_in_scenario_description()
         {
-            string firstLine = "Scenario: The answer with the highest vote gets to the top";
-            var reader = new ScenarioReader(BufferedReaderBuilder.ReadIn(firstLine));
+            var reader = new ScenarioReader(BufferedReaderBuilder.ReadIn(
+                    "Scenario: The answer with the highest vote gets to the top"
+                ));
 
             Scenario scenario = reader.Read();
 

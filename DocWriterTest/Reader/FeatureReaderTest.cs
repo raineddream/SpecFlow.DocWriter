@@ -12,8 +12,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
         [Test]
         public void Should_read_in_feature_description_without_blank_prefix()
         {
-            string featureDesc = "Feature: Ording answers";
-            var reader = new FeatureReader(BufferedReaderBuilder.ReadIn(featureDesc));
+            var reader = new FeatureReader(BufferedReaderBuilder.ReadIn("Feature: Ording answers"));
 
             Feature feature = reader.Read();
 
@@ -23,10 +22,10 @@ namespace Rain.SpecFlow.DocWriter.Reader
         [Test]
         public void Should_read_in_feature_description_with_multi_lines_format()
         {
-            var featureDesc = new StringBuilder();
-            featureDesc.AppendLine("Feature: Ording answers");
-            featureDesc.AppendLine("	about voting");
-            var reader = new FeatureReader(BufferedReaderBuilder.ReadIn(featureDesc));
+            var reader = new FeatureReader(BufferedReaderBuilder.ReadIn(
+                    "Feature: Ording answers",
+                    "	about voting"
+                ));
 
             Feature feature = reader.Read();
 
@@ -36,10 +35,10 @@ namespace Rain.SpecFlow.DocWriter.Reader
         [Test]
         public void Should_read_in_scenario()
         {
-            var featureDesc = new StringBuilder();
-            featureDesc.AppendLine("Feature: Ording answers");
-            featureDesc.AppendLine("Scenario: The answer with the highest vote gets to the top");
-            var reader = new FeatureReader(BufferedReaderBuilder.ReadIn(featureDesc));
+            var reader = new FeatureReader(BufferedReaderBuilder.ReadIn(
+                    "Feature: Ording answers",
+                    "Scenario: The answer with the highest vote gets to the top"
+                ));
 
             Feature feature = reader.Read();
 
@@ -50,12 +49,12 @@ namespace Rain.SpecFlow.DocWriter.Reader
         [Test]
         public void Should_ignore_blank_line()
         {
-            var featureDesc = new StringBuilder();
-            featureDesc.AppendLine("Feature: Ording answers");
-            featureDesc.AppendLine("    "); // Blank spaces
-            featureDesc.AppendLine("    "); // Tab
-            featureDesc.AppendLine("Scenario: The answer with the highest vote gets to the top");
-            var reader = new FeatureReader(BufferedReaderBuilder.ReadIn(featureDesc));
+            var reader = new FeatureReader(BufferedReaderBuilder.ReadIn(
+                    "Feature: Ording answers",
+                    "    ", // Blank spaces
+                    "    ", // Tab
+                    "Scenario: The answer with the highest vote gets to the top"
+                ));
 
             Feature feature = reader.Read();
 
@@ -70,7 +69,11 @@ namespace Rain.SpecFlow.DocWriter.Reader
             featureDesc.AppendLine("Scenario: The answer with the highest vote gets to the top");
             featureDesc.AppendLine("Scenario: The answer with the lowest vote gets to the bottom");
 
-            var reader = new FeatureReader(BufferedReaderBuilder.ReadIn(featureDesc));
+            var reader = new FeatureReader(BufferedReaderBuilder.ReadIn(
+                    "Feature: Ording answers",
+                    "Scenario: The answer with the highest vote gets to the top",
+                    "Scenario: The answer with the lowest vote gets to the bottom"
+                ));
 
             Feature feature = reader.Read();
 
