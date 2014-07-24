@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Text;
 using Rain.SpecFlow.DocWriter.Reader.IO;
 
@@ -28,7 +27,8 @@ namespace Rain.SpecFlow.DocWriter.Reader
             {
                 if (ScenarioReader.CanReadIn(line))
                 {
-                    scenarios.Add(new ScenarioReader(line, _reader).Read());
+                    _reader.BackToPrevLine();
+                    scenarios.Add(new ScenarioReader(_reader).Read());
                 }
                 else if (IsFeatureDescription(line))
                 {

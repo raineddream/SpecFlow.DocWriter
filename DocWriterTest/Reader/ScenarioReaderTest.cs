@@ -10,7 +10,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
         public void Should_read_in_scenario_description()
         {
             string firstLine = "Scenario: The answer with the highest vote gets to the top";
-            var reader = new ScenarioReader(firstLine, BufferedReaderBuilder.ReadIn(firstLine));
+            var reader = new ScenarioReader(BufferedReaderBuilder.ReadIn(firstLine));
 
             Scenario scenario = reader.Read();
 
@@ -24,8 +24,7 @@ namespace Rain.SpecFlow.DocWriter.Reader
                 "Scenario: The answer with the highest vote gets to the top",
                 "    Given there is a question \"What's your favorite colour?\" with the answers"
                 );
-            var reader = new ScenarioReader("Scenario: The answer with the highest vote gets to the top", bufferedReader);
-            bufferedReader.ReadLine();
+            var reader = new ScenarioReader(bufferedReader);
 
             Scenario scenario = reader.Read();
 
