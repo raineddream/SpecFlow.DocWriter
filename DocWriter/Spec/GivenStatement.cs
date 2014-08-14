@@ -1,6 +1,4 @@
-using Rain.SpecFlow.DocWriter.Spec;
-
-namespace Rain.SpecFlow.DocWriter.Reader
+namespace Rain.SpecFlow.DocWriter.Spec
 {
     public class GivenStatement : IStatement
     {

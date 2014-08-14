@@ -1,9 +1,8 @@
 using System.Globalization;
 using System.Text;
-using Rain.SpecFlow.DocWriter.Reader.IO;
-using Rain.SpecFlow.DocWriter.Spec;
+using Rain.SpecFlow.DocWriter.IO;
 
-namespace Rain.SpecFlow.DocWriter.Reader
+namespace Rain.SpecFlow.DocWriter.Spec
 {
     public class ScenarioReader : IReader<Scenario>
     {

@@ -1,5 +1,4 @@
-﻿using Rain.SpecFlow.DocWriter.Reader;
-using Rain.SpecFlow.DocWriter.Spec;
+﻿using Rain.SpecFlow.DocWriter.Spec;
 
 namespace Rain.SpecFlow.DocWriter
 {

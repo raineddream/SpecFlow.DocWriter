@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text;
+using Rain.SpecFlow.DocWriter.IO;
 using Rain.SpecFlow.DocWriter.Reader.IO;
 
 namespace Rain.SpecFlow.DocWriter.Reader

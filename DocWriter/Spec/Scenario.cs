@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Rain.SpecFlow.DocWriter.Reader;
 
 namespace Rain.SpecFlow.DocWriter.Spec
 {

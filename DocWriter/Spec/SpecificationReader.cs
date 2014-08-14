@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Rain.SpecFlow.DocWriter.Reader.IO;
-using Rain.SpecFlow.DocWriter.Spec;
+using Rain.SpecFlow.DocWriter.IO;
 
-namespace Rain.SpecFlow.DocWriter.Reader
+namespace Rain.SpecFlow.DocWriter.Spec
 {
     public class SpecificationReader : IReader<Specification>
     {

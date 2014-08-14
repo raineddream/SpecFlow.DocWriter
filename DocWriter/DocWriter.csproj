@@ -43,19 +43,19 @@
   <ItemGroup>
     <Compile Include="ArgumentParser.cs" />
     <Compile Include="InfoSource.cs" />
+    <Compile Include="IO\Options.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="Options.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reader\GivenStatement.cs" />
-    <Compile Include="Reader\IO\BufferedReader.cs" />
-    <Compile Include="Reader\FeatureReader.cs" />
-    <Compile Include="Reader\IReader.cs" />
-    <Compile Include="Reader\ScenarioReader.cs" />
-    <Compile Include="Reader\SpecificationReader.cs" />
+    <Compile Include="IO\BufferedReader.cs" />
     <Compile Include="Spec\Feature.cs" />
+    <Compile Include="Spec\FeatureReader.cs" />
+    <Compile Include="Spec\GivenStatement.cs" />
+    <Compile Include="Spec\IReader.cs" />
     <Compile Include="Spec\IStatement.cs" />
     <Compile Include="Spec\Scenario.cs" />
+    <Compile Include="Spec\ScenarioReader.cs" />
     <Compile Include="Spec\Specification.cs" />
+    <Compile Include="Spec\SpecificationReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

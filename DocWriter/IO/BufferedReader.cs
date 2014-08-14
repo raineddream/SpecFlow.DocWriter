@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace Rain.SpecFlow.DocWriter.Reader.IO
+namespace Rain.SpecFlow.DocWriter.IO
 {
     public class BufferedReader
     {

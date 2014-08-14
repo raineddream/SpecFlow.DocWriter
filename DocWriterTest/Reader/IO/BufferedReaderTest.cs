@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 using NUnit.Framework;
+using Rain.SpecFlow.DocWriter.IO;
 
 namespace Rain.SpecFlow.DocWriter.Reader.IO
 {
